@@ -1,10 +1,10 @@
-# Ggtranslate
+# 📝 Ggtranslate
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ggtranslate`. To experiment with that code, run `bin/console` for an interactive prompt.
+**NOTE**: `Ggtranslate` is not official supported by Google and not recommended to use in production.
 
-TODO: Delete this and the text above, and describe your gem
+`Ggtranslate` is a hacked way to use google translate without hassles. You **don't need** to have `API_KEY` to start.
 
-## Installation
+# 📝 Installation
 
 Add this line to your application's Gemfile:
 
@@ -12,32 +12,40 @@ Add this line to your application's Gemfile:
 gem 'ggtranslate'
 ```
 
-And then execute:
-
-    $ bundle
-
 Or install it yourself as:
 
     $ gem install ggtranslate
 
-## Usage
+# 📝 Usage
 
-TODO: Write usage instructions here
+![Quick Example](https://user-images.githubusercontent.com/2922275/150781438-7613e311-2986-4ee2-98da-1f5e06cb02cf.gif)
 
-## Development
+Start with translate 1 simple sentence from English to Vietnamese
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```ruby
+require 'ggtranslate'
+result = Ggtranslate::Translator.translate("hello", "en", "vi")
+result.translated_text
+# => "xin chào"
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+You can query in bulk to make less api calls.
 
-## Contributing
+```ruby
+sentences = [
+    %q{xin chào mọi người},
+    %q{chào buổi sáng},
+    %q{chào buổi tối},
+]
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ggtranslate. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+result = Ggtranslate::Translator.translate(sentences, "auto", "en")
+result.translated_text
 
-## License
+# => ["hello everyone", "good morning", "good evening"]
+```
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+you can use `auto` to let Google Translate auto detect source / dest language
 
-## Code of Conduct
 
-Everyone interacting in the Ggtranslate project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/ggtranslate/blob/master/CODE_OF_CONDUCT.md).
+# 📝 License
+The gem is available as open source under the terms of the MIT License.
