@@ -18,7 +18,7 @@ Or install it yourself as:
 
 # 📝 Usage
 
-![Quick Example](https://user-images.githubusercontent.com/2922275/150781438-7613e311-2986-4ee2-98da-1f5e06cb02cf.gif)
+![Quick Example](https://user-images.githubusercontent.com/2922275/150912638-a93699b8-3c37-4aeb-9896-e982b8f21daa.gif)
 
 Start with translate 1 simple sentence from English to Vietnamese
 
