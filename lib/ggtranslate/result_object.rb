@@ -1,3 +1,5 @@
+require_relative "./exceptions"
+
 module Ggtranslate
   class ResultObject
     def initialize(http_response)
@@ -11,12 +13,14 @@ module Ggtranslate
         result = @response_data.dig("sentences", 0, "trans")
       elsif @response_data.is_a? Array
         result = @response_data.first
-      else
-        raise "NO RESUL FOUND"
       end
+
+      raise "EMPTY RESULT" unless result
 
       result = result.split("----------")
       result.count == 1 ? result.first : result
+    rescue => e
+      raise Ggtranslate::ResponseParsingException.new("Fail to parse response body")
     end
 
     def source_language
@@ -47,7 +51,11 @@ module Ggtranslate
     private
 
     def process_http_response
-      raise "TRANSLATE_FAILED" unless is_success?
+      unless is_success?
+        error_message = "Fail to call api with http code #{@http_response.code}"
+        raise Ggtranslate::ApiCallException.new(error_message)
+      end
+
       @response_data = JSON.load(@http_response.body)
     end
   end

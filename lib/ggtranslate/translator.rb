@@ -4,8 +4,8 @@ require "addressable"
 require_relative "./result_object"
 
 module Ggtranslate
-  class Translator
-    def self.translate(text_query, source_language = "auto", to_language = "en")
+  module Translator
+    def translate(text_query, source_language = "auto", to_language = "en")
       endpoint = "https://clients5.google.com/translate_a/t?"
       # to translate multiple sentences
       text_query = text_query.join("----------") if text_query.is_a? Array
@@ -23,7 +23,7 @@ module Ggtranslate
       ResultObject.new(response)
     end
 
-    def self.build_headers
+    def build_headers
       {
 
         accept: "*/*",
