@@ -3,7 +3,7 @@ require "byebug"
 
 describe Ggtranslate::Translator do
   it "translate simple text" do
-    result = Ggtranslate::Translator.translate("hello", "en", "vi")
+    result = Ggtranslate.translate("hello", "en", "vi")
     expect(result.translated_text).to eql("xin chào")
     expect(result.source_language).to eql("en")
     expect(result.is_success?).to eql(true)
@@ -16,7 +16,7 @@ describe Ggtranslate::Translator do
       %q{chào buổi sáng},
       %q{chào buổi tối},
     ]
-    result = Ggtranslate::Translator.translate(sentences, "auto", "en")
+    result = Ggtranslate.translate(sentences, "auto", "en")
 
     expect(result.translated_text[0]).to eql("hello everyone")
     expect(result.translated_text[1]).to eql("good morning")
