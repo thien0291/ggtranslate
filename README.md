@@ -24,7 +24,7 @@ Start with translate 1 simple sentence from English to Vietnamese
 
 ```ruby
 require 'ggtranslate'
-result = Ggtranslate::Translator.translate("hello", "en", "vi")
+result = Ggtranslate.translate("hello", "en", "vi")
 result.translated_text
 # => "xin chào"
 ```
@@ -38,13 +38,20 @@ sentences = [
     %q{chào buổi tối},
 ]
 
-result = Ggtranslate::Translator.translate(sentences, "auto", "en")
+result = Ggtranslate.translate(sentences, "auto", "en")
 result.translated_text
 
 # => ["hello everyone", "good morning", "good evening"]
 ```
 
 you can use `auto` to let Google Translate auto detect source / dest language
+
+To get all supported languages
+
+```ruby
+Ggtranslate::LANGUAGES
+```
+
 
 
 # 📝 License
