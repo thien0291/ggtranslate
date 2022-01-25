@@ -1,5 +1,4 @@
 require "ggtranslate"
-require "byebug"
 
 describe Ggtranslate::Translator do
   it "translate simple text" do

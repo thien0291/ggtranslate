@@ -1,5 +1,4 @@
 require "ggtranslate"
-require "byebug"
 
 describe Ggtranslate::ResultObject do
   it "raise ApiCallException when failing to call API" do
