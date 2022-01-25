@@ -1,5 +1,7 @@
 # 📝 Ggtranslate
 
+Inspired by this [`py-googletrans`](https://github.com/ssut/py-googletrans) [topic](https://github.com/ssut/py-googletrans/issues/268).
+
 **NOTE**: `Ggtranslate` is not official supported by Google and not recommended to use in production.
 
 `Ggtranslate` is a hacked way to use google translate without hassles. You **don't need** to have `API_KEY` to start.
